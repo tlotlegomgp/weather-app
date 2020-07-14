@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poiret+One">
+    <link rel="stylesheet" href="{% static 'index/css/styles.min.css' %}">
+    <link rel="stylesheet" href="{% static 'index/css/custom.css' %}">
+</head>
+
+<body style="background-color: rgb(71,217,227);">
+    <div style="background-color: #1b1919;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center d-inline-block d-lg-flex flex-shrink-1 justify-content-center justify-content-lg-center align-items-lg-center" style="height: 140px;padding: 40px;color: rgb(71,217,227);font-family: 'Montserrat Alternates', sans-serif;">Prepare For Your Day Ahead&nbsp;<i class="fa fa-umbrella"></i></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="newsletter-subscribe" style="background-color: rgb(71,217,227);">
+        <div class="container">
+            <form class="form-inline" method="POST" action="{% url 'index_page' %}">{% csrf_token %}
+                <div class="form-group">
+                    {{ form.city_search }}
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-sm border-dark text-center d-flex d-lg-flex justify-content-center align-items-center justify-content-lg-center align-items-lg-center" type="submit" style="width: 95px; background-color: #1b1919;color: rgb(71,217,227);">
+                        search
+                    </button>
+                </div>
+            </form>
+            {% for message in messages %}
+                <br>
+                <div class = "row justify-content-center align-items-center justify-content-lg-center align-items-lg-center">
+                    <div class="alert alert-danger">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        {% if name %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 d-inline-flex d-xl-flex justify-content-xl-center align-items-xl-center">
+                    <br><br>
+                    <article class="widget">
+                        <div class="weatherIcon">
+                            <figure class = "image is-100x100">
+                                <img src = "http://openweathermap.org/img/wn/{{icon}}@4x.png" alt = "Image">
+                            </figure>
+                        </div>
+                        <div class="weatherInfo col-sm-12 hidden-lg hidden-md hidden-xs">
+                          <div class="temperature"><span>{{ temperature }}C&deg;</span></div>
+                          <div class="description">    
+                            <div class="weatherCondition">{{description}}</div>    
+                            <div class="place">{{ name }}, {{ country }}</div>
+                          </div>
+                        </div>
+                        <div class="date">{{ date }}</div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
