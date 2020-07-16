@@ -27,12 +27,12 @@
     <br><br>
     <div class="newsletter-subscribe" style="background-color: rgb(71,217,227);">
         <div class="container">
-            <form class="form-inline" method="POST" action="{% url 'index_page' %}">{% csrf_token %}
+            <form class="form-inline d-lg-flex justify-content-lg-center align-items-lg-center" method="POST" action="{% url 'index_page' %}" style="padding: 10px;">{% csrf_token %}
                 <div class="form-group">
                     {{ form.city_search }}
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-sm border-dark text-center d-flex d-lg-flex justify-content-center align-items-center justify-content-lg-center align-items-lg-center" type="submit" style="width: 95px; background-color: #1b1919;color: rgb(71,217,227);">
+                    <button class="btn border-dark" type="submit" style="width: 95px; background-color: #1b1919;color: rgb(71,217,227);">
                         search
                     </button>
                 </div>
@@ -49,6 +49,7 @@
         </div>
     </div>
     <div>
+        <br><br>
         {% if name %}
         <div class="container">
             <div class="row">
