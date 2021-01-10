@@ -1,9 +1,9 @@
 
-
 .widget {
     display: flex;
     height: 300px;
     width: 800px;
+    background-color: #87ceeb;
     font-family: Montserrat Alternates;
     flex-wrap: wrap;
     cursor: pointer;
@@ -37,6 +37,7 @@ i{
     flex: 0 0 40%;
     width: 100%;
     font-size: 60px;
+    font-family: 'Courier New', Courier, monospace;
     display: flex;
     justify-content: space-around;
 }
@@ -63,8 +64,9 @@ font-size: 16px;
   
 .date{
 flex: 0 0 30%;
+opacity: 1;
 height: 40%;
-background: #70C1B3;
+background: #818479;
 border-bottom-right-radius: 10px;
 display: flex;
 justify-content: space-around;
