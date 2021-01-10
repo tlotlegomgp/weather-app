@@ -1,7 +1,5 @@
 # MGP Weather
 
-https://mgp-weather.herokuapp.com/
-
 A weather forecast app. Allows users to search for the weather in any major city in the world.
 
 Hosted on Heroku using a free plan. Site might take a moment to open on first launch.
