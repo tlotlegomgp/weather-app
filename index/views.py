@@ -26,7 +26,7 @@ def index_view(request):
                     messages.error(request, "City name entered does not exist. Please try again.")                
                 else:
                     context['name'] = response['name']
-                    context['date'] = timezone.now().strftime("%a %H:%M%p")
+                    context['date'] = timezone.now()
                     context['temperature'] = response['main']['temp']
                     context['description'] = response['weather'][0]['description']
                     context['icon'] = response['weather'][0]['icon']

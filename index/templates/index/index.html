@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	{% load static %}
+	{% load tz %}
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
@@ -93,8 +94,9 @@
 									<div class="place">{{ name }}, {{ country }}</div>
 								</div>
 							</div>
-							{% load tz %}
-							<div class="date">{{ date|timezone:"Africa/Johannesburg"  }}</div>
+							{% timezone "Africa/Johannesburg" %}
+							<div class="date">{{ date|date:"d b H:i a" }}</div>
+							{% endtimezone %}
 						</article>
 					</div>
 				</div>
