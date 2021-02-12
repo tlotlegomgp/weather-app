@@ -1,9 +1,9 @@
+import os
+import requests
+import datetime
 from django.shortcuts import render
 from . forms import SearchForm
 from django.contrib import messages
-import requests
-import datetime
-import os
 
 # Create your views here.
 
@@ -14,7 +14,7 @@ def index_view(request):
         if context['form'].is_valid():
             city = context['form'].cleaned_data["city_search"]
 
-            api_key = os.environ.get('OPEN_WEATHER_API_KEY')
+            api_key = os.environ.get('WEATHER_APP_API_KEY')
 
             api_call = "http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid={}"
 
