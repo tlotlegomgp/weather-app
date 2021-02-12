@@ -93,7 +93,8 @@
 									<div class="place">{{ name }}, {{ country }}</div>
 								</div>
 							</div>
-							<div class="date">{{ date }}</div>
+							{% load tz %}
+							<div class="date">{{ date|timezone:"Africa/Johannesburg"  }}</div>
 						</article>
 					</div>
 				</div>
