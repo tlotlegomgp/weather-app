@@ -1,9 +1,10 @@
-import os
+
 import requests
-import datetime
+import os
 from django.shortcuts import render
 from . forms import SearchForm
 from django.contrib import messages
+from django.utils import timezone
 
 # Create your views here.
 
@@ -25,7 +26,7 @@ def index_view(request):
                     messages.error(request, "City name entered does not exist. Please try again.")                
                 else:
                     context['name'] = response['name']
-                    context['date'] = datetime.datetime.now().strftime("%a %H:%M%p")
+                    context['date'] = timezone.now().strftime("%a %H:%M%p")
                     context['temperature'] = response['main']['temp']
                     context['description'] = response['weather'][0]['description']
                     context['icon'] = response['weather'][0]['icon']
