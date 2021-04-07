@@ -27,7 +27,8 @@ def index_view(request):
                 else:
                     context['name'] = response['name']
                     context['date'] = timezone.now()
-                    context['temperature'] = response['main']['temp']
+                    temp = response['main']['feels_like']
+                    context['temperature'] = round(temp)
                     context['description'] = response['weather'][0]['description']
                     context['icon'] = response['weather'][0]['icon']
                     context['country'] = response['sys']['country']
