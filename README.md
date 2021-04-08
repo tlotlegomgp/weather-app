@@ -7,7 +7,7 @@ Hosted on Heroku using a free plan. Site might take a moment to open on first la
 ### Tech stack:
 
 * Python 3.8
-* Django 3
+* Django 3.2
 * Bootstrap
 * OPENWEATHER API
 
